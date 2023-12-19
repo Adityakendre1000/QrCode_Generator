@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QR Code Generator</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    
+<body>
+    <h1>QR Code Generator</h1>
+    <form method="post">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Generate QR Code</button>
+    </form>
+    {% if url %}
+        <p>Generated QR Code for: <strong>{{ url }}</strong></p>
+        <img src="data:image/png;base64,{{ img_str }}" alt="QR Code">
+    {% endif %}
+</body>
+</html>
